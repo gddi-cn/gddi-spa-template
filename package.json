@@ -1,7 +1,8 @@
 {
   "name": "gddi-spa-template",
-  "private": true,
   "version": "0.0.0",
+  "author": "amaneru<amaneru@163.com>",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
