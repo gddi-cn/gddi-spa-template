@@ -12,7 +12,7 @@ import {
   successColorAtom,
 } from './store'
 
-export const useCustomTheme = () => {
+export const usDynamicTheme = () => {
   const [mode] = useAtom(modeAtom)
   const [primary] = useAtom(primaryColorAtom)
   const [secondary] = useAtom(secondaryColorAtom)

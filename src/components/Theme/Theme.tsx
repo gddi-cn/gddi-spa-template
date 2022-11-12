@@ -1,14 +1,14 @@
 import React from 'react'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 
-import { useCustomTheme } from './hook'
+import { usDynamicTheme } from './hook'
 
 const Theme: React.FC<{ children?: React.ReactNode }> = (
   {
     children,
   }
 ) => {
-  const theme = useCustomTheme()
+  const theme = usDynamicTheme()
 
   return (
     <ThemeProvider theme={theme}>

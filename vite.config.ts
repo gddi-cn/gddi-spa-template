@@ -2,6 +2,19 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import * as path from 'path'
 
+const genHash = (fileName: string): string => {
+  let hash = 0
+
+  if (fileName.length === 0) return hash.toString()
+
+  for (let i = 0; i < fileName.length; i++) {
+    let chr = fileName.charCodeAt(i)
+    hash = ((hash << 5) - hash) + chr
+    hash |= 0
+  }
+  return hash.toString()
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -20,7 +33,7 @@ export default defineConfig({
       "@router": path.resolve(__dirname, "src/router"),
       "@themes": path.resolve(__dirname, "src/themes"),
       "@wasm": path.resolve(__dirname, "src/wasm"),
-    }
+    },
   },
   server: {
     port: 2333,
