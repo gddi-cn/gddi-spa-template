@@ -3,6 +3,7 @@ import { useCounter, useMode } from './hook'
 import { Box, Button, FormControl, FormControlLabel, Switch, Typography } from '@mui/material'
 import SpringDemo from '@components/SpringDemo'
 import DraggableList from '@components/DraggableList'
+import TodoList from '@components/TodoList'
 
 const Test: React.FC = () => {
   const { count, handleAdd, handleReduce } = useCounter(0)
@@ -38,6 +39,9 @@ const Test: React.FC = () => {
       </Box>
       <Box mt={4}>
         <DraggableList />
+      </Box>
+      <Box mt={4}>
+        <TodoList />
       </Box>
     </Box>
   )

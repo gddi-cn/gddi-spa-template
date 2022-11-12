@@ -5,6 +5,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@fontsource/roboto': ^4.5.8
+  '@mui/icons-material': ^5.10.9
   '@mui/material': ^5.10.13
   '@react-spring/web': ^9.5.5
   '@types/lodash': ^4.14.188
@@ -12,6 +13,7 @@ specifiers:
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
   '@vitejs/plugin-react': ^2.2.0
+  immer: ^9.0.16
   jotai: ^1.9.2
   lodash: ^4.17.21
   react: ^18.2.0
@@ -26,11 +28,13 @@ dependencies:
   '@emotion/react': 11.10.5_cuziicjcvwawlf5iuhzacuhqcy
   '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
   '@fontsource/roboto': 4.5.8
+  '@mui/icons-material': 5.10.9_4tcfjhohj57yvze6zkot3vymie
   '@mui/material': 5.10.13_thp4wrxo45nyllusrnt46mid4u
   '@react-spring/web': 9.5.5_biqbaboplfbrettd7655fr4n2y
   '@types/lodash': 4.14.188
   '@types/node': 18.11.9
-  jotai: 1.9.2_3lzqd2prgnu7gkxqqdmtvzna5u
+  immer: 9.0.16
+  jotai: 1.9.2_xeqeww3zlamkk42mxejxlzumlu
   lodash: 4.17.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -504,6 +508,23 @@ packages:
 
   /@mui/core-downloads-tracker/5.10.13:
     resolution: {integrity: sha512-zWkWPV/SaNdsIdxAWiuVGZ+Ue3BkfSIlU/BFIrJmuUcwiIa7gQsbI/DOpj1KzLvqZhdEe2wC1aG4nCHfzgc1Hg==}
+    dev: false
+
+  /@mui/icons-material/5.10.9_4tcfjhohj57yvze6zkot3vymie:
+    resolution: {integrity: sha512-sqClXdEM39WKQJOQ0ZCPTptaZgqwibhj2EFV9N0v7BU1PO8y4OcX/a2wIQHn4fNuDjIZktJIBrmU23h7aqlGgg==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.1
+      '@mui/material': 5.10.13_thp4wrxo45nyllusrnt46mid4u
+      '@types/react': 18.0.25
+      react: 18.2.0
     dev: false
 
   /@mui/material/5.10.13_thp4wrxo45nyllusrnt46mid4u:
@@ -1118,6 +1139,10 @@ packages:
       react-is: 16.13.1
     dev: false
 
+  /immer/9.0.16:
+    resolution: {integrity: sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ==}
+    dev: false
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -1135,7 +1160,7 @@ packages:
     dependencies:
       has: 1.0.3
 
-  /jotai/1.9.2_3lzqd2prgnu7gkxqqdmtvzna5u:
+  /jotai/1.9.2_xeqeww3zlamkk42mxejxlzumlu:
     resolution: {integrity: sha512-/893WrniZwoVc0+3JR056r0FTC/tGbgyHco9dfgde6K8TU6XNxrOSw4jCRdDicncw67A37v2GNGzXSpHKbHPmw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -1167,6 +1192,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.20.2
+      immer: 9.0.16
       react: 18.2.0
     dev: false
 
