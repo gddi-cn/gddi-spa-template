@@ -1,12 +1,15 @@
 import Theme from '@components/Theme'
 import Test from '@pages/Test'
+import ErrorBoundary from '@pages/ErrorBoundary'
 
 function App() {
   return (
     <div className="App">
-      <Theme>
-        <Test />
-      </Theme>
+      <ErrorBoundary>
+        <Theme>
+          <Test />
+        </Theme>
+      </ErrorBoundary>
     </div>
   )
 }
