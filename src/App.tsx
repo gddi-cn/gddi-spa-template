@@ -1,13 +1,13 @@
 import Theme from '@components/Theme'
-import Test from '@pages/Test'
 import ErrorBoundary from '@pages/ErrorBoundary'
+import Router from '@/router'
 
 function App() {
   return (
     <div className="App">
       <ErrorBoundary>
         <Theme>
-          <Test />
+          <Router />
         </Theme>
       </ErrorBoundary>
     </div>

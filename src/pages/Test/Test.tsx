@@ -9,7 +9,7 @@ const Test: React.FC = () => {
   return (
     <Box
       pt={5}
-      height={'100vh'} width={'100vw'} display={'flex'}
+      display={'flex'}
       sx={{ flexDirection: 'column', alignItems: 'center' }}
     >
       <Box mt={4}>

@@ -30,7 +30,7 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "src/assets"),
       "@layout": path.resolve(__dirname, "src/layout"),
       "@shared": path.resolve(__dirname, "src/shared"),
-      "@router": path.resolve(__dirname, "src/router"),
+      "@router": path.resolve(__dirname, "src/index"),
       "@themes": path.resolve(__dirname, "src/themes"),
       "@wasm": path.resolve(__dirname, "src/wasm"),
     },
