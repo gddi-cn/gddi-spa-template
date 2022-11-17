@@ -5,7 +5,7 @@ export namespace Paths {
     NOTFOUND = '*'
   }
   export enum Layout {
-    DASHBOARD = '/',
-    TEST = '/test',
+    DASHBOARD = '',
+    TEST = 'test',
   }
 }

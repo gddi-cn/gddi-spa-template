@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSprings, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import _ from 'lodash'
 
 import styles from './styles.module.css'

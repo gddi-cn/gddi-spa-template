@@ -1,17 +1,17 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
 
-import Lazy from '@components/Lazy'
 import DynamicImportFailed from '@components/DynamicImportFailed/DynamicImportFailed'
+import LayoutPage from '@layout/LayoutPage'
 
 const Dashboard = React.lazy(() => import('@pages/Dashboard'))
 
 const dashboardRoute: RouteObject = {
   index: true,
   element: (
-    <Lazy>
+    <LayoutPage>
       <Dashboard />
-    </Lazy>
+    </LayoutPage>
   ),
   errorElement: <DynamicImportFailed />,
 }

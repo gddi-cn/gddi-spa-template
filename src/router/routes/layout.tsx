@@ -11,9 +11,7 @@ const Layout = React.lazy(() => import('@/layout'))
 const layoutRoute: RouteObject = {
   path: Paths.Primary.LAYOUT,
   element: (
-    <React.Suspense fallback={<PrimaryLoading />}>
-      <Layout />
-    </React.Suspense>
+    <Layout />
   ),
   children: [
     dashboardRoute,

@@ -4,7 +4,7 @@ import { useNavigate, useOutlet } from 'react-router-dom'
 import LayoutLoading from '../components/LayoutLoading'
 import Header from '@layout/Header'
 import { Paths } from '@shared/enums/paths'
-import PrimaryLoading from '@components/PrimaryLoading'
+import Lazy from '@components/Lazy'
 
 const Layout: React.FC = () => {
   const Outlet = useOutlet()
@@ -18,7 +18,9 @@ const Layout: React.FC = () => {
       <Button onClick={() => navigate(Paths.Layout.DASHBOARD)}>Dashboard</Button>
       <Button onClick={() => navigate(Paths.Layout.TEST)}>Test</Button>
       <Box component={'main'}>
-        { Outlet }
+        <Lazy>
+          { Outlet || undefined }
+        </Lazy>
       </Box>
     </Box>
   )

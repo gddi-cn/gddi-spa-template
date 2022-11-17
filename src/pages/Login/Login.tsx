@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   return (
     <>
       <Typography variant={'h2'}>Login page</Typography>
-      <Button onClick={() => navigate(Paths.Layout.DASHBOARD)}>Dashboard</Button>
+      <Button onClick={() => navigate(Paths.Primary.LAYOUT)}>Dashboard</Button>
     </>
   )
 }

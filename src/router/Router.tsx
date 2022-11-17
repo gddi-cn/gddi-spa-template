@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { loginRoute, notfoundRoute, layoutRoute, } from './routes'
 import React from 'react'
+import PrimaryLoading from '@components/PrimaryLoading'
 
 const router = createBrowserRouter([
   layoutRoute,
@@ -11,7 +12,9 @@ const router = createBrowserRouter([
 
 const Router: React.FC = () => {
   return (
-    <RouterProvider router={router} />
+    <React.Suspense fallback={<PrimaryLoading />}>
+      <RouterProvider router={router} />
+    </React.Suspense>
   )
 }
 
