@@ -1,11 +1,14 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AppBar, Toolbar } from '@mui/material'
+import Logo from './Logo'
+import ToggleBtn from '@layout/Sidebar/ToggleBtn'
 
 const Header: React.FC = () => {
   return (
-    <AppBar>
+    <AppBar sx={{ zIndex: theme => theme.zIndex.drawer + 1 }}>
       <Toolbar variant={'dense'}>
-        <Typography variant={'h6'}>Gddi Spa Template</Typography>
+        <ToggleBtn />
+        <Logo />
       </Toolbar>
     </AppBar>
   )
