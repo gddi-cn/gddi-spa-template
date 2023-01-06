@@ -1,19 +1,6 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import * as path from 'path'
-
-const genHash = (fileName: string): string => {
-  let hash = 0
-
-  if (fileName.length === 0) return hash.toString()
-
-  for (let i = 0; i < fileName.length; i++) {
-    let chr = fileName.charCodeAt(i)
-    hash = ((hash << 5) - hash) + chr
-    hash |= 0
-  }
-  return hash.toString()
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -38,6 +25,7 @@ export default defineConfig({
   server: {
     port: 2333,
     open: true,
+    host: true,
     proxy: {
       '/api': {
         // TODO set your api server host

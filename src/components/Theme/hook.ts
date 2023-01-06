@@ -31,6 +31,7 @@ export const usDynamicTheme = () => {
         warning: { main: warning },
         info: { main: info },
         success: { main: success },
+        background: { default: mode === 'dark' ? '#121212' : '#fcfcfe' }
       }
     }),
     [mode, primary, secondary, error, warning, info, success]

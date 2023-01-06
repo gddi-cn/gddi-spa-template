@@ -1,19 +1,21 @@
 import React from 'react'
-import { Box } from '@mui/material'
-import MiniPermanent from './MiniPermanent/MiniPermanent'
-import { SIDEBAR_WIDTH } from '@/config/layout'
+
+import MiniDrawer from './MiniDrawer'
+import TemporaryDrawer from './TemporaryDrawer'
+
+import Menu from '@/menu'
 
 const Sidebar: React.FC = () => {
+
   return (
-    <Box
-      component={'nav'}
-      sx={{ width: { lg: SIDEBAR_WIDTH }, flexShrink: { lg: 0 } }}
-      aria-label={'sidebar'}
-    >
-      <MiniPermanent>
-        1
-      </MiniPermanent>
-    </Box>
+    <>
+      <MiniDrawer>
+        <Menu />
+      </MiniDrawer>
+      <TemporaryDrawer>
+        <Menu />
+      </TemporaryDrawer>
+    </>
   )
 }
 

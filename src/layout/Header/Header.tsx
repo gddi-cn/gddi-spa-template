@@ -1,14 +1,17 @@
 import React from 'react'
-import { AppBar, Toolbar } from '@mui/material'
+import { AppBar, Toolbar, Box } from '@mui/material'
 import Logo from './Logo'
-import ToggleBtn from '@layout/Sidebar/ToggleBtn'
+import SidebarToggleBtn from '@layout/SidebarToggleBtn'
+import ThemeModeSwitch from '@/components/ThemeModeSwitch'
 
 const Header: React.FC = () => {
   return (
     <AppBar sx={{ zIndex: theme => theme.zIndex.drawer + 1 }}>
       <Toolbar variant={'dense'}>
-        <ToggleBtn />
+        <SidebarToggleBtn />
         <Logo />
+        <Box sx={{ flex: 1 }} />
+        <ThemeModeSwitch />
       </Toolbar>
     </AppBar>
   )
