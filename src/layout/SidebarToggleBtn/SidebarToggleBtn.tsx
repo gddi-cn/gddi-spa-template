@@ -1,24 +1,29 @@
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useAtom } from 'jotai';
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 
 import { sidebarOpenAtom } from '../store'
 
 const SidebarToggleBtn: React.FC = () => {
-  const [, setOpen] = useAtom(sidebarOpenAtom)
+  const [open, setOpen] = useAtom(sidebarOpenAtom)
 
   const handleClick = () => {
     setOpen(o => !o)
   }
 
   return (
-    <IconButton
-      color='inherit' sx={{ mr: 3 }}
-      onClick={handleClick} edge='start'
+    <Tooltip
+      title={ open ? '收起菜单' : '展开菜单' }
+      placement='bottom'
     >
-      <MenuIcon />
-    </IconButton>
+      <IconButton
+        color='inherit' sx={{ mr: 3 }}
+        onClick={handleClick} edge='start'
+      >
+        <MenuIcon />
+      </IconButton>
+    </Tooltip>
   )
 }
 

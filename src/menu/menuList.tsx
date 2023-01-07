@@ -5,8 +5,7 @@ import GroupIcon from '@mui/icons-material/PeopleAltOutlined';
 
 import { Paths } from '@/shared/enums/paths'
 
-
-const menuList: Array<Menu.Instance> = [
+const menuList: Array<Menu.Item | Menu.NestedItem> = [
   {
     id: '0x00000001',
     label: '仪表盘',
@@ -14,18 +13,20 @@ const menuList: Array<Menu.Instance> = [
     path: Paths.Layout.DASHBOARD,
   },
   {
-    id: '0c00000010',
+    id: '0x00000010',
     label: '用户',
     children: [
       {
+        id: '00000010_00000001',
         label: '用户管理',
         icon: <PersonIcon />,
-        path: 'user'
+        path: Paths.Layout.USER,
       },
       {
+        id: '00000010_00000010',
         label: '群组管理',
         icon: <GroupIcon />,
-        path: 'group',
+        path: Paths.Layout.GROUP,
       }
     ],
   },

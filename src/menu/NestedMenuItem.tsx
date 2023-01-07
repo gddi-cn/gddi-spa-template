@@ -2,10 +2,10 @@ import React from 'react'
 import ExpandLess from '@mui/icons-material/ExpandLess';
 
 import { useNestedMenuItem } from './hook'
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material'
 import MenuItem from '@/menu/MenuItem'
 
-const NestedMenuItem: React.FC<Menu.Instance & { open: boolean }> = (
+const NestedMenuItem: React.FC<Menu.NestedItem & { open: boolean }> = (
   {
     open,
     label,
@@ -16,33 +16,43 @@ const NestedMenuItem: React.FC<Menu.Instance & { open: boolean }> = (
 
   return children?.length ? (
     <>
-      <ListItemButton
-        onClick={handleClick}
-        sx={{
-          minHeight: 48,
-          justifyContent: { xs: 'inherit', lg: open ? 'inherit' : 'center' },
-          px: 2.5,
+      <Tooltip
+        title={ open ? '' : (expand ? '收起' : label)}
+        placement='left'
+        PopperProps={{
+          sx: {
+            marginLeft: '-186px!important'
+          }
         }}
       >
-        <ListItemIcon
+        <ListItemButton
+          onClick={handleClick}
           sx={{
-            minWidth: 0,
-            mr: { xs: 3, lg: open ? 3 : 'auto' },
-            justifyContent: 'center',
+            minHeight: 48,
+            justifyContent: { xs: 'inherit', lg: open ? 'inherit' : 'center' },
+            px: 2.5,
           }}
         >
-          { expand ? <ExpandLess /> : children[0].icon }
-        </ListItemIcon>
-        <ListItemText primary={label} sx={{ opacity: { xs: 1, lg: open ? 1 : 0 } }} />
-      </ListItemButton>
+            <ListItemIcon
+              sx={{
+                minWidth: 0,
+                mr: { xs: 3, lg: open ? 3 : 'auto' },
+                justifyContent: 'center',
+              }}
+            >
+              { expand ? <ExpandLess /> : children[0].icon }
+            </ListItemIcon>
+          <ListItemText primary={label} sx={{ opacity: { xs: 1, lg: open ? 1 : 0 } }} />
+        </ListItemButton>
+      </Tooltip>
       <Collapse in={expand} timeout={'auto'} unmountOnExit>
         <List component={'div'} disablePadding>
           {
-            children.map((subMenu, idx) => (
+            children.map(subMenu => (
               <MenuItem
-                key={`${subMenu.label}_sub_${idx}`}
-                id={`${subMenu.label}_sub_${idx}`}
-                sub open={open}
+                key={subMenu.id}
+                level={1}
+                open={open}
                 {...subMenu}
               />
             ))

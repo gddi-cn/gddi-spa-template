@@ -10,7 +10,12 @@ import Main from '@layout/Main'
 
 const Container = styled(Box)(
   () => ({
-    display: 'flex',
+  })
+)
+
+const Content = styled(Box)(
+  () => ({
+    display: 'flex'
   })
 )
 
@@ -21,12 +26,14 @@ const Layout: React.FC = () => {
     <Container aria-label={'layout'}>
       <Header />
       <LayoutLoading />
-      <Sidebar />
-      <Main>
-        <Lazy>
-          { Outlet || undefined }
-        </Lazy>
-      </Main>
+      <Content>
+        <Sidebar />
+        <Main>
+          <Lazy>
+            { Outlet || undefined }
+          </Lazy>
+        </Main>
+      </Content>
     </Container>
   )
 }

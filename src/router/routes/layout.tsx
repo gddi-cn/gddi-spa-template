@@ -3,8 +3,9 @@ import { RouteObject } from 'react-router-dom'
 
 import { Paths } from '@shared/enums/paths'
 import dashboardRoute from './dashboard'
+import userRoute from './user'
+import groupRoute from './group'
 import testRoute from './test'
-import PrimaryLoading from '@components/PrimaryLoading'
 
 const Layout = React.lazy(() => import('@/layout'))
 
@@ -15,6 +16,8 @@ const layoutRoute: RouteObject = {
   ),
   children: [
     dashboardRoute,
+    userRoute,
+    groupRoute,
     testRoute,
   ]
 }

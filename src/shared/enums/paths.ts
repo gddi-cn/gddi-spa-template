@@ -6,6 +6,8 @@ export namespace Paths {
   }
   export enum Layout {
     DASHBOARD = '',
+    USER = 'user',
+    GROUP = 'group',
     TEST = 'test',
   }
 }

@@ -1,4 +1,4 @@
-import { Box, Toolbar } from '@mui/material'
+import { Box } from '@mui/material'
 
 
 const Main: React.FC<{ children?: React.ReactNode }> = (
@@ -7,8 +7,7 @@ const Main: React.FC<{ children?: React.ReactNode }> = (
   }
 ) => {
   return (
-    <Box sx={{ flexGrow: 1, p: 3 }} component='main'>
-      <Toolbar variant='dense' />
+    <Box sx={{ flexGrow: 1, p: 1 }} component='main'>
       { children }
     </Box>
   )

@@ -1,50 +1,77 @@
 import React from 'react'
-import { useAtom }  from 'jotai'
-import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material'
 
-import { sidebarOpenAtom } from '@/layout/store'
-import { useNavigate } from 'react-router-dom'
+import { useMenuItem } from './hook'
 
-const MenuItem: React.FC<Menu.Instance & { open: boolean, sub?: boolean }> = (
+
+const MenuItem: React.FC<Menu.Item & { open: boolean, level?: number }> = (
   {
     path,
     icon,
     label,
     open,
-    sub = false,
+    level = 0
   }
 ) => {
-  const navigate = useNavigate()
+
+  const { handleClick, match } = useMenuItem(path)
 
   return (
-    <ListItemButton
-      onClick={() => navigate(path || '/')}
-      sx={{
-        minHeight: 48,
-        justifyContent: { xs: 'inherit', lg: open ? 'inherit' : 'center' },
-        px: 2.5,
+    <Tooltip
+      title={ open ? '' : label}
+      placement='left'
+      PopperProps={{
+        sx: {
+          marginLeft: '-186px!important'
+        }
       }}
     >
-      {
-        icon ? (
-          <ListItemIcon
-            sx={{
-              minWidth: 0,
-              mr: { xs: 3, lg: open ? 3 : 'auto' },
-              justifyContent: 'center',
-              pl: { xs: sub ? 4 : 0, lg: sub && open ? 4 : 0 },
-              transition: theme => theme.transitions.create('padding-left', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-              })
-            }}
-          >
-            { icon }
-          </ListItemIcon>
-        ) : null
-      }
-      <ListItemText primary={label} sx={{ opacity: { xs: 1, lg: open ? 1 : 0 } }} />
-    </ListItemButton>
+      <ListItemButton
+        onClick={handleClick}
+        sx={{
+          position: 'relative',
+          minHeight: 48,
+          justifyContent: { xs: 'inherit', lg: open ? 'inherit' : 'center' },
+          px: 2.5,
+          '&::before': {
+            display: 'block',
+            position: 'absolute',
+            content: '""',
+            left: 0,
+            height: match ? '100%' : 0,
+            width: 3,
+            bgcolor: 'secondary.main',
+            transition: theme => theme.transitions.create('height', {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+            })
+          }
+        }}
+      >
+        <ListItemIcon
+          sx={{
+            minWidth: 0,
+            mr: { xs: 3, lg: open ? 3 : 'auto' },
+            justifyContent: 'center',
+            pl: { xs: level * 4, lg: open ? level * 4 : 0 },
+            color: match ? 'primary.main' : undefined,
+            transition: theme => theme.transitions.create('padding-left', {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+            })
+          }}
+        >
+          { icon }
+        </ListItemIcon>
+        <ListItemText
+          primary={label}
+          sx={{
+            opacity: { xs: 1, lg: open ? 1 : 0 },
+            color: match ? 'primary.main' : undefined,
+          }}
+        />
+      </ListItemButton>
+    </Tooltip>
   )
 }
 
